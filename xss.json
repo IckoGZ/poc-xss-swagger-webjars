@@ -1,7 +1,7 @@
 {
-    "url": "https://raw.githubusercontent.com/0tax00/poc-xss-swagger-webjars/main/xss.yaml",
+    "url": "https://raw.githubusercontent.com/IckoGZ/poc-xss-swagger-webjars/main/xss.yaml",
     "urls": [{
-        "url": "https://raw.githubusercontent.com/0tax00/poc-xss-swagger-webjars/main/xss.yaml",
+        "url": "https://raw.githubusercontent.com/IckoGZ/poc-xss-swagger-webjars/main/xss.yaml",
         "name": "Foo"
     }]
 }
